@@ -1,0 +1,240 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f0f4ff;
+  --card: #ffffff;
+  --primary: #4f6ef7;
+  --primary-dark: #3a56d4;
+  --accent: #ff6b6b;
+  --text: #1a1a2e;
+  --muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(79, 110, 247, 0.12);
+
+  /* Group colors */
+  --c1: #ff6b6b;
+  --c2: #ff9f43;
+  --c3: #ffd32a;
+  --c4: #0be881;
+  --c5: #00d2d3;
+  --c6: #48dbfb;
+  --c7: #a29bfe;
+  --c8: #fd79a8;
+  --c9: #6c5ce7;
+  --c10: #e17055;
+  --c11: #00b894;
+  --c12: #74b9ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+/* Controls */
+.controls {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepper {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.stepper:active {
+  transform: scale(0.92);
+}
+
+input[type="number"] {
+  width: 64px;
+  height: 48px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  background: white;
+  transition: border-color 0.15s;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.operator {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding-top: 1.2rem;
+}
+
+/* Equation */
+.equation {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  min-height: 2.5rem;
+}
+
+.equation .result {
+  color: var(--primary);
+}
+
+/* Visualization */
+.visualization {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.group-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  animation: pop 0.2s ease-out;
+  border-top: 4px solid var(--group-color, var(--primary));
+  min-width: 80px;
+}
+
+@keyframes pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.group-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--group-color, var(--primary));
+}
+
+.items-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  max-width: 160px;
+}
+
+.item {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--group-color, var(--primary));
+  opacity: 0.85;
+  transition: transform 0.1s;
+}
+
+.item:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  .controls { gap: 1rem; padding: 1rem; }
+  .equation { font-size: 1.4rem; }
+}
