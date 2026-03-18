@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiplyr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Multiplyr</h1>
+      <p class="subtitle">Visualize multiplication as groups</p>
+    </header>
+
+    <section class="controls">
+      <div class="input-group">
+        <label for="num1">Groups</label>
+        <div class="input-row">
+          <button class="stepper" data-target="num1" data-delta="-1">−</button>
+          <input id="num1" type="number" min="1" max="12" value="3" />
+          <button class="stepper" data-target="num1" data-delta="1">+</button>
+        </div>
+      </div>
+
+      <div class="operator">×</div>
+
+      <div class="input-group">
+        <label for="num2">Items per group</label>
+        <div class="input-row">
+          <button class="stepper" data-target="num2" data-delta="-1">−</button>
+          <input id="num2" type="number" min="1" max="12" value="4" />
+          <button class="stepper" data-target="num2" data-delta="1">+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="equation" id="equation"></section>
+
+    <section class="visualization" id="visualization"></section>
+
+    <footer>
+      <p>For Avery &hearts;</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
