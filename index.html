@@ -44,6 +44,24 @@
     </footer>
   </div>
 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDBFLPttEJa3AFtIsm7e1EpB6dqzZyXezg",
+      authDomain: "multiplyr-app.firebaseapp.com",
+      projectId: "multiplyr-app",
+      storageBucket: "multiplyr-app.firebasestorage.app",
+      messagingSenderId: "802361569175",
+      appId: "1:802361569175:web:7c737c793c4d15180f1ed2",
+      measurementId: "G-38J4VJGF1G"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
   <script src="app.js"></script>
 </body>
 </html>
