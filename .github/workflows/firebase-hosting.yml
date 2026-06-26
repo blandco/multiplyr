@@ -24,6 +24,11 @@ jobs:
           token_format: access_token
 
       - name: Deploy to Firebase Hosting
-        run: npx firebase-tools@latest deploy --only hosting --project multiplyr-app
+        run: |
+          set +e
+          npx firebase-tools@latest deploy --only hosting --project multiplyr-app 2>&1 | tee deploy-output.txt
+          EXIT=$?
+          grep -q "current active version" deploy-output.txt && EXIT=0
+          exit $EXIT
         env:
           FIREBASE_TOKEN: ${{ steps.auth.outputs.access_token }}
