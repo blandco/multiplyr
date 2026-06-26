@@ -21,13 +21,9 @@ jobs:
         with:
           workload_identity_provider: projects/802361569175/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
           service_account: firebase-deployer@multiplyr-app.iam.gserviceaccount.com
-          create_credentials_file: true
           token_format: access_token
 
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --only hosting --project multiplyr-app
+        run: npx firebase-tools@latest deploy --only hosting --project multiplyr-app
         env:
-          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          FIREBASE_TOKEN: ${{ steps.auth.outputs.access_token }}
